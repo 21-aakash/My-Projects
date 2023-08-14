@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    .bulb {
+      height: 250px;
+      width: 250px;
+      background-color: #e3f336;
+      border: 5px solid #000;
+      border-radius: 50%;
+      margin-top: 50px;
+    }
+    h1 {
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+
+      align-self: center;
+    }
+
+    .container {
+      margin: 50px;
+      margin-left: 40%;
+      display: block;
+    }
+    #btn {
+      margin-left: 100px;
+      margin-top: 50px;
+    }
+
+   
+
+  </style>
+ 
+
+  <body>
+    <div class="container">
+      <h1>Bulb Tutorial</h1>
+      <div class="bulb"></div>
+      <button id="btn" onclick="clicked()">ON/OFF</button>
+    </div>
+
+    <script>
+        var a = document.querySelector(".bulb");
+    
+       
+    
+        var flag = 0;
+    
+        function clicked() {
+          if (flag == 0) {
+            a.style.backgroundColor = "transparent";
+            console.log("Bulb is Off");
+
+           
+            flag = 1;
+          } else {
+            a.style.backgroundColor = "yellow";
+            console.log("Bulb is ON");
+            flag = 0;
+          }
+        }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,578 @@
+// 1. Ways to print in JavaScript
+console.log("Hello World");
+alert("me");
+document.write("this is document write");
+
+// 2. Javascript console API
+console.log("Hello World", 4 + 6, "Another log");
+console.warn("this is warning");
+console.error("This is an error");
+// 3. JavaScript Variables
+// What are Variables? - Containers to store data values
+
+/*
+multi 
+line 
+commment
+*/
+____________________________________________________________Data types ___________________________________________________________________
+
+var number1 = 34;
+var number2 = 56;
+ //console.log(number1 + number2);
+
+// 4. Data types in JavaScript
+// Numbers
+var num1 = 455;
+var num2 = 56.76;
+
+// String
+var str1 = "This is a string";
+var str2 = "This is also a string";
+console.log(str1, str2);
+// Objects
+var marks = {
+  ravi: 34,
+  shubham: 78,
+  harry: 99.977,
+};
+ console.log(marks);
+
+// Booleans
+var a = true;
+var b = false;
+ console.log(a, b);
+
+// var und = undefined;
+var und;
+// console.log(und);
+
+var n = null;
+// console.log(n);
+/*
+At a very high level, there are two types of data types in JavaScript
+1. Primitive data types: undefined, null, number, string, boolean, symbol
+2. Reference data types: Arrays and Objects
+*/
+
+var arr = [1, 2, "bablu", 4, 5]
+// console.log(arr)
+
+-------------------------------- Operators in JavaScript--------------------
+// Arithmetic Operators
+var a = 100;
+var b = 10;
+// console.log("The value of a + b is ", a+b);
+// console.log("The value of a - b is ", a-b);
+// console.log("The value of a * b is ", a*b);
+// console.log("The value of a / b is ", a/b);
+
+// Assignment Operators
+var c = b;
+// c += 2;
+// c -= 2; // c = c - 2;
+// c *= 2;
+// c /= 2;
+// console.log(c);
+
+// Comparison Operators
+var x = 34;
+var y = 56;
+// console.log(x == y);
+// console.log(x >= y);
+// console.log(x <= y);
+// console.log(x > y);
+// console.log(x < y);
+
+// Logical Operators
+
+// Logical and
+// console.log(true && true)
+// console.log(true && false)
+// console.log(false && true)
+// console.log(false && false)
+
+// Logical or
+// console.log(true || true)
+// console.log(true || false)
+// console.log(false || true)
+// console.log(false || false)
+
+// Logical not
+// console.log(!false);
+// console.log(!true);
+// Function in JavaScript
+function avg(a, b) {
+  c = (a + b) / 2;
+  return c;
+}
+// DRY = Do not repeat yourself
+c1 = avg(4, 6);
+c2 = avg(14, 16);
+// console.log(c1, c2);
+
+------------------------------------- Conditionals in JavaScript----------------------------------
+/*
+var age = 41;
+// Single if statement
+if(age > 18){
+  console.log('You can drink rasna water');
+}
+// if - else statement
+// if(age > 18){
+//     console.log('You can drink rasna water');
+// }
+// else{
+//     console.log('You cannot drink rasna water');
+// }
+
+age = 25;
+// if-else Ladder
+if(age > 32){
+  console.log("You are not a kid");
+}
+else if(age >26){
+  console.log("Bachhe nahi rahe");
+}
+else if(age >22){
+  console.log("Yes Bachhe nahi rahe");
+}
+else if(age >18){
+  console.log("18 Bachhe nahi rahe");
+}
+else{
+  console.log("Bachhe rahe");
+}
+console.log("End of ladder");
+*/
+-----------------------------------------Array------------------------------
+
+var arr = [1, 2, 3, 4, 5, 6, 7];
+---------1--------// console.log(arr);
+
+---------2-------//for
+
+// for(var i=0;i<arr.length;i++){
+//     if(i==2){
+//         // break;
+//         continue;
+//     }
+//     console.log(arr[i])
+// }
+---------3-------//forEach
+// arr.forEach(function(element){
+//   console.log(element);
+
+// })
+------------------------while loop-------------------------
+let j=0;
+
+// while(j<arr.length){
+//     console.log(arr[j]);
+//     j ++;
+// }
+------------------------ do -while loop-------------------------
+// do{
+//     console.log(arr[j]);
+//     j++;
+// } while (j < arr.length);
+------------------------let - var - const ----------------------------
+var : old version 
+let : new version (scope : bloack level , between {} braces )
+
+1.var i =2;
+2.let j=6;
+3.const x=55;(value cant be changed )
+
+--------------------------- Array Methods---------------------
+
+let myArr = ["Fan", "Camera", 34, null, true];
+// Array Methods
+// console.log(myArr.length); ------- to print length 
+// myArr.pop();       ----- to remove 1 elem from end        
+// myArr.push("harry")  --------  to add one element
+// myArr.shift()         ---------removes first elmetn and shift all elements  
+// const newLen = myArr.unshift("Harry")
+// console.log(newLen);
+// console.log(myArr);
+// array.push(45);  // to push e;lement
+//var array =[];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_________________________________________________________Closures____________________________________________________________________________________
+
+//  In JavaScript, functions have a reference to all variables declared in the same scope as well as any outer scopes.
+//   These scopes are known as the function's lexical environment. The combination of the function and it's environment is known as a closure.
+
+
+function createAdder(a) {
+  return function add(b) {
+    const sum = a + b;
+    return sum;
+  }
+}
+const addTo2 = createAdder(2);
+addTo2(5); // 7
+
+// The inner function add has access to a. This allows the outer function to serve as a factory of new functions, each with different behavior.
+
+
+class Adder {
+  constructor(a) {
+     this.a = a;
+  }
+
+  add(b) {
+    const sum = this.a + b;
+    return sum;
+  }
+}
+const addTo2 = new Adder(2);
+addTo2.add(5); // 7
+
+// differences in syntax
+// difference is that closures allow for true encapsulation
+// Another difference is how the functions are stored in memory. If you create many instances of a class, each instance stores a single reference to the prototype object where all the methods are stored. Whereas for closures, all the "methods" are generated and a "copy" of each is stored in memory each time the outer function is called. For this reason, classes can be more efficient, particularly in the case where there are many methods.
+--------------------------------------
+// Given a function fn, return a new function that is identical to the original function except that it ensures fn is called at most once.
+
+// The first time the returned function is called, it should return the same result as fn.
+// Every subsequent time it is called, it should return undefined.
+ 
+var once = function(fn) {
+  let flag=false 
+  return function(...args){
+       if(!flag){ 
+           flag=true
+        return fn(...args) 
+        }
+         } 
+         };
+
+
+//----------------------------------------------JavaScript Objects and Function Returns-----------------------------------------------------------
+In JavaScript, functions can return objects, which are collections of related data and functions, often known as properties and methods.
+
+function createPerson(name, age) {
+  return {
+    name: name,
+    age: age,
+    greet: function() {
+      console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+    }
+  };
+}
+
+let person = createPerson("Alice", 25);
+person.greet(); // "Hello, my name is Alice and I'm 25 years old."
+
+//--------------------------------------------JavaScript Error Handling------------------------------------------------------------------------------
+Error handling in JavaScript is primarily accomplished through the use of throw statements and try...catch blocks. The throw statement allows you to create custom error messages, which can be very useful for debugging your code. There are different ways to use the throw statement based on what you want to achieve.
+
+
+
+
+
+//--------------------------------------------Throwing a string----------------------------------------------------------------------------
+You can throw a string in JavaScript. It will be caught as an error message in the catch block.
+function checkName(name) {
+  if (name === '') {
+    throw "Name can't be empty!";
+  }
+  return name;
+}
+
+try {
+  console.log(checkName(''));
+} catch (error) {
+  console.error(error); // "Name can't be empty!"
+}
+
+
+//--------------------------------------------Throwing an Error instance:
+A more common and recommended approach is to throw an Error instance. This allows additional metadata like a stack trace to be included with the error, aiding in debugging.
+function divide(numerator, denominator) {
+  if (denominator === 0) {
+    throw new Error("Cannot divide by zero!");
+  }
+  return numerator / denominator;
+}
+
+try {
+  console.log(divide(5, 0));
+} catch (error) {
+  console.error(error.message); // "Cannot divide by zero!"
+}
+
+//----------------------------------------Throwing an Aggregated Error:
+// There are times when you might want to throw multiple errors at once. This is particularly useful when dealing with Promises. JavaScript has an in-built AggregateError object that can be used in these scenarios. The AggregateError object takes an iterable of error objects and an optional message as parameters
+let error1 = new Error("First Error");
+let error2 = new Error("Second Error");
+
+try {
+  throw new AggregateError([error1, error2], "Two errors occurred.");
+} catch (error) {
+  if (error instanceof AggregateError) {
+    console.error(error.message); // "Two errors occurred."
+    for (let e of error.errors) {
+      console.error(e.message); // logs "First Error" then "Second Error"
+    }
+  }
+}
+
+--------------------------------day04----------------------
+
+
+// Given an integer array arr and a mapping function fn, return a new array with a transformation applied to each element.
+
+// The returned array should be created such that returnedArray[i] = fn(arr[i], i).
+
+// Please solve it without the built-in Array.map method.
+var map = function(arr, fn) {
+    
+  var newarr = [];
+  newarr.length = arr.length;
+  
+  for(var i=0; i<arr.length; i++)
+  {
+        newarr[i]=fn(arr[i], i);
+  
+  }
+  return newarr;
+  
+  
+  
+  };
+  ---------------------------------functions ---------------------------------------------------------
+
+why rest parameter ?
+// Rest parameters in JavaScript allow us to represent an indefinite number of arguments as an array within a function. It enables us to handle multiple arguments without explicitly defining each one in the function signature.
+
+// The rest parameter is denoted by three dots (...) followed by a parameter name in a function declaration or function expression.
+
+
+let array = [1,2,3,4,5];
+
+// we expect argument to be passed in this way
+function sum (a,b,c,d,e){
+    console.log(a,b,c,d,e) // 1 2 3 4 5 
+}
+
+// brute force method 
+sum(array[0],array[1],array[2],array[3],array[4]);
+
+// Problem :- we have to pass each value individually & 
+// if we have 1000 values in array then 
+// we have to pass 1000 arguments in function which is not feasible.
+
+
+// using rest parameter we can pass all the values of array in one go
+sum(...array); 
+
+//rest parameter allows us to pass indefinite number of arguments as an array within a function.
+
+
+Return Length of Arguments Passed-------------?????????????????
+
+As we know args is an array of arguments passed to a function. We can use args.length to get the number of arguments passed to a function.
+var argumentsLength = function(...args) {
+  return args.length
+ };
+ 
+ /**
+  * argumentsLength(1, 2, 3); // 
+  */
+_________________________________________Add 2 Promises____________________________________________
+
+// An easy problem with a deep important concept behind , Let's Break it down below :
+// -We have promise 1 and promise 2
+// -They're both inside an async function
+
+// They both return some values
+Goal : Return a new promise that calculates the sum of the two values returned by the two promises
+Approach
+Let's Start :)
+
+Step 1 we create a new promise using Promise.all
+What's the Promise.all method ?
+Great question , what promise.all basically does is that it takes a certain number of promises and returns only one promise.
+Here's it's syntax :
+Promise.all(array) .
+That's weird why do we have an array?
+Promise.all literally takes an array as it's parameters look at our code example below
+
+Promise.all([promise1,promise2])
+As you can notice we have now an array of two promises and it's passed down to our Promise.all which takes in an Array , be warry it always takes in an array . Then , returns a single promise.
+
+For Further explanation , check out this link :)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+
+Step 2 : we use the .then method .
+In simple terms , .then method returns our resolved value in this case the resolved value from Promise.all (Basic Asynchronous knwoledge )
+
+Step 3 : ofcourse the .then takes a callback function in this case it would be called value as shown below
+
+.then(value => DOSMTHG... )
+Note : VALUE IS A AN ARRAY BUT WHY ?
+Simply because Promise.all took in an array of the 2 promises , it then returns an array. (check the link above )
+
+Step 4 : We have finished the async logic now it's time for the logic of our problem .
+Let's think together :
+I have an array that has two values let's say [2,3] . I want to return the sum of those two values . HOW CAN I DO THAT?
+We have several approahes , you make loop over the array maybe but hummm that kinda makes the code look bigger.
+Or you can use eval method that evaluates the values o=in the array and concat them with a join('+' ) . But not everyone knows the eval method and it's not really the best Practice :( .
+
+LET'S HAVE A LOOK AT HOW DID I SOLVE IT :
+I simply used the .reduce method.
+
+The reduce method takes an array as one of it's parameters.
+It performs a reduction operation on the elements in the array
+Here's it's syntax in action :
+value.reduce((acc,val) => acc+val,0)
+acc is the accumalator it's value is 0
+The operation between them is Sum , which in our Case what we need
+If you're not really familiar with reduce method I urge you to check this link below
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+AND THAT'S IT , IF YOU HAVE ANY QUESTIONS FEEL FREE TO ASK ME BELOW AND IF YOU'D LIKE ANY OTHER POST EXPLAINING THOSE ASYNC CONCEPTS IN DETAIL COMMENT OUT BELOW .
+HAPPY HACKING :)
+
+Code
+/**
+ * @param {Promise} promise1
+ * @param {Promise} promise2
+ * @return {Promise}
+ */
+const addTwoPromises = async function(promise1, promise2) {
+ return Promise.all([promise1,promise2])
+ .then(value => value.reduce((acc,val) => acc+val,0))
+};
+============================ What is Caching?====================================================
+
+// Caching is the process of storing data in a temporary storage area, known as cache, to improve performance and reduce the amount of times data needs to be fetched from the original source
+// In a 5year old language caching is like saving a cookie or a toy in your pocket so you can quickly find it later when you want to use it again. It helps make things faster and easier to find!
+Problem Summary:
+// The memoized function should only be called once for each unique set of inputs, and all subsequent calls with the same inputs should return the cached value.
+// The memoize function should work with three possible input functions: sum, which takes two integers and returns their sum; fib, which takes a single integer n and returns the nth number in the Fibonacci sequence; and factorial, which takes a single integer n and returns the factorial of n.
+
+Approach:
+
+// we use an object cacheObject to store the cached results.
+// Each time the memoized function is called with a set of arguments, those arguments are converted to a JSON string and used as a key to look up the cached result.
+// If the key is found in the cacheObject, the cached result is returned.
+// Otherwise, the original function is called with the arguments, and the result is stored in the cacheObject and returned.
+
+/**
+ * @param {Function} fn
+ */
+function memoize(fn) {
+  const cacheObject = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (key in cacheObject) {
+      return cacheObject[key];
+    } else {
+      const result = fn(...args);
+      cacheObject[key] = result;
+      return result;
+    }
+  }
+}
+
+/** 
+ * let callCount = 0;
+ * const memoizedFn = memoize(function (a, b) {
+ *	 callCount += 1;
+ *   return a + b;
+ * })
+ * memoizedFn(2, 3) // 5
+ * memoizedFn(2, 3) // 5
+ * console.log(callCount) // 1 
+ */
+
+
+
+
+
+
+
+
+
+
+
+ We need to create a function that executes a given function after a specified delay, unless a cancel function cancelFn is called before the delay expires. The cancel function should prevent the execution of the delayed function.
+
+Closures:
+In JavaScript, a closure is a combination of a function and the lexical environment within which that function was declared. The lexical environment consists of the variables, functions, and scopes available at the time of the closure's creation.
+
+Working:
+
+When a function is defined inside another function, a closure is created. The inner function retains a reference to the variables and scope of its outer function.
+When the outer function finishes executing and returns, the closure is still intact with its captured variables and scope chain.
+The closure allows the inner function to access and manipulate the variables of its outer function, even if the outer function's execution has completed.
+This behavior is possible because the closure maintains a reference to its outer function's variables and scope chain, preventing them from being garbage collected.
+Refer to this editorial for a deeper understanding of closures: Counter
+
+In the context of the problem, closures are used to maintain a reference to the timer variable even after the function that creates the closure has returned. This allows the cancelFn function to access and modify the timer variable, effectively canceling the execution of the delayed function.
+
+setTimeout:
+setTimeout is a built-in function in JavaScript that allows you to schedule the execution of a function after a specified delay. It can take infinite number of arguments but usually its first two argumentss are always a function to be executed and a delay time in milliseconds.
+
+Note: setTimeout is actually a variadic function that can accept an infinite number of arguments
+
+Here's an example of how to use setTimeout:
+
+function delayedFunction() {
+  console.log("Delayed function executed!");
+}
+
+const delay = 2000;
+
+const timerId = setTimeout(delayedFunction, delay);
+
+// To cancel the execution before the delay expires:
+clearTimeout(timerId);z
+Working:
+
+When setTimeout is called, it starts a timer and sets it to run after the specified delay.
+After the delay expires, the JavaScript event loop puts the specified function in the execution queue.
+Once the call stack is empty, the function is executed, and any associated code inside it is run.
+If the setTimeout function is canceled before the delay expires, the scheduled function will not be executed.
+Refer to this editorials for a more deeper understanding of setTimeout:
+1. Cache with time limit
+2. Debounce
+3. Throttle
+
+In the context of the problem, setTimeout is used inside the cancellable function to schedule the execution of the delayed function (fn) after the specified delay (t).
+
+Overall, closures and setTimeout work together in this problem to create a cancelable delayed function execution mechanism. The closure preserves the reference to the timeoutId variable, and setTimeout schedules the execution of the function after the specified delay.
+
+Approach 1: Using Closure
+Intuition:
+We can use the setTimeout function to schedule the execution of the delayed function fn after the specified timeout t. Then we use apply method to pass the arguments from the args array to fn.
+Also by storing the timer ID returned by setTimeout in the timeoutId variable, we can cancel the execution of the delayed function by calling clearTimeout with the timeoutId.
+
+Algorithm:
+Inside the cancellable function, we use setTimeout to schedule the execution of fn after the specified timeout t. The fn function is called using the apply method to pass the args array as arguments. Additionally the setTimeout function returns a timer ID, which is stored in the timeoutId variable.
+After that a cancelFn function is defined, which calls clearTimeout with the timeoutId to cancel the execution of the delayed function.
+Finally, the cancelFn function is returned from the cancellable function.
